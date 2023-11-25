@@ -122,7 +122,7 @@ export class CustomerRentalRoomComponent {
         dueDate: this.validateForm.value.dueDate,
         roomDeposit: this.validateForm.value.roomDeposit,
         clientId: this.rowSelectedClient,
-        roomId: this.roomId,
+        roomId: this.roomId
       }
 
       // console.log(this.contractRequest)

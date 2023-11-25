@@ -68,27 +68,33 @@ export class AdminRentalContractComponent {
   }
 
   onCreateBill(contractId: number): void {
-    this.monthBillService.getBillOfContract(contractId).subscribe(response => {
-      let data = response.data;
-      if (data.length <= 0) {
-        this.modalService.confirm({
-          nzTitle: '<i>Xác nhận</i>',
-          nzContent: '<b>Bạn muốn thanh toán cho hợp đồng #' + contractId + '</b>',
-          nzOnOk: () => this.router.navigate(['/admin/month-bill', contractId])
-        });
-      } else {
-        this.modalService.confirm({
-          nzTitle: '<i>Xác nhận</i>',
-          nzContent: '<b>Hợp đồng đã được thanh toán - Xem chi tiết #' + contractId + '</b>',
-          nzOnOk: () => this.router.navigate(['/admin/bill-detail', contractId])
-        });
-      }
-    }, error => {
-      this.notification.create(
-        'error',
-        'Lỗi server',
-        'Lỗi truyền tải dữ liệu'
-      );
-    })
+    this.modalService.confirm({
+      nzTitle: '<i>Xác nhận</i>',
+      nzContent: '<b>Bạn muốn thanh toán cho hợp đồng #' + contractId + '</b>',
+      nzOnOk: () => this.router.navigate(['/admin/month-bill', contractId])
+    });
+
+    // this.monthBillService.getBillOfContract(contractId).subscribe(response => {
+    //   let data = response.data;
+    //   if (data.length <= 0) {
+    //     this.modalService.confirm({
+    //       nzTitle: '<i>Xác nhận</i>',
+    //       nzContent: '<b>Bạn muốn thanh toán cho hợp đồng #' + contractId + '</b>',
+    //       nzOnOk: () => this.router.navigate(['/admin/month-bill', contractId])
+    //     });
+    //   } else {
+    //     this.modalService.confirm({
+    //       nzTitle: '<i>Xác nhận</i>',
+    //       nzContent: '<b>Hợp đồng đã được thanh toán - Xem chi tiết #' + contractId + '</b>',
+    //       nzOnOk: () => this.router.navigate(['/admin/bill-detail', contractId])
+    //     });
+    //   }
+    // }, error => {
+    //   this.notification.create(
+    //     'error',
+    //     'Lỗi server',
+    //     'Lỗi truyền tải dữ liệu'
+    //   );
+    // })
   }
 }

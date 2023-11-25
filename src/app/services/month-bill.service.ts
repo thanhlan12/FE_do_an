@@ -13,7 +13,7 @@ export class MonthBillService {
     constructor(private httpClient: HttpClient, private authService: AuthService) { }
 
     createMonthBill(monthBillRequest: CreateMonthBillRequest): Observable<MonthBillResponse> {
-        return this.httpClient.post<MonthBillResponse>(`${this.baseURL}`, monthBillRequest);
+        return this.httpClient.post<MonthBillResponse>(`${this.baseURL}/createMonthlyBill`, monthBillRequest);
     }
 
     getBillOfContract(contractId: number): Observable<MonthBillListResponse> {
