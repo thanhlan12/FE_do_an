@@ -23,4 +23,8 @@ export class MonthBillService {
     getBillById(monthBillId: number): Observable<MonthBillResponse> {
         return this.httpClient.get<MonthBillResponse>(`${this.baseURL}/${monthBillId}`);
     }
+
+    PaymentBill(monthBillId:number): Observable<MonthBillResponse> {
+        return this.httpClient.post<MonthBillResponse>(`${this.baseURL}/thanhToan/${monthBillId}`,{});
+    }
 }

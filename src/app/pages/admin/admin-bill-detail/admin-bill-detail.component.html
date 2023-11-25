@@ -15,15 +15,19 @@
                 <div class="row mb-2">
                     <div class="col-sm-8">
                         <h1 class="m-0">Thanh toán hóa đơn tháng hợp đồng: #{{monthBillDto.contractDto.id}}</h1>
-                    </div><!-- /.col -->
+                    </div>
+                    <!-- /.col -->
                     <div class="col-sm-4">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a [routerLink]="['/admin']">Trang chủ</a></li>
                             <li class="breadcrumb-item active">Thanh toán</li>
                         </ol>
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
         </div>
         <!-- /.content-header -->
 
@@ -44,29 +48,25 @@
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label>Khách hàng</label>
-                                <input type="text" class="form-control" [value]="monthBillDto.contractDto.clientDto.fullName"
-                                    disabled>
+                                <input type="text" class="form-control" [value]="monthBillDto.contractDto.clientDto.fullName" disabled>
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label>Số điện thoại</label>
-                                <input type="text" class="form-control" [value]="monthBillDto.contractDto.clientDto.phoneNumber"
-                                    disabled>
+                                <input type="text" class="form-control" [value]="monthBillDto.contractDto.clientDto.phoneNumber" disabled>
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label>Căn cước công dân</label>
-                                <input type="text" class="form-control"
-                                    [value]="monthBillDto.contractDto.clientDto.idCard" disabled>
+                                <input type="text" class="form-control" [value]="monthBillDto.contractDto.clientDto.idCard" disabled>
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label>Địa chỉ</label>
-                                <input type="text" class="form-control"
-                                    [value]="monthBillDto.contractDto.clientDto.address" disabled>
+                                <input type="text" class="form-control" [value]="monthBillDto.contractDto.clientDto.address" disabled>
                             </div>
                         </div>
                     </div>
@@ -74,30 +74,26 @@
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label>Mã phòng</label>
-                                <input type="text" class="form-control"
-                                    [value]="monthBillDto.contractDto.roomDto.name" disabled>
+                                <input type="text" class="form-control" [value]="monthBillDto.contractDto.roomDto.name" disabled>
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label>Địa chỉ phòng</label>
                                 <input type="text" class="form-control" [value]=" 'Tòa ' + 
-                                monthBillDto.contractDto.roomDto.buildingDto.name + ', ' + monthBillDto.contractDto.roomDto.buildingDto.address"
-                                    disabled>
+                                monthBillDto.contractDto.roomDto.buildingDto.name + ', ' + monthBillDto.contractDto.roomDto.buildingDto.address" disabled>
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label>Ngày thuê</label>
-                                <input type="text" class="form-control" [value]="monthBillDto.contractDto.startDate | date: 'dd-MM-yyyy'"
-                                    disabled>
+                                <input type="text" class="form-control" [value]="monthBillDto.contractDto.startDate | date: 'dd-MM-yyyy'" disabled>
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label>Ngày hết hạn</label>
-                                <input type="text" class="form-control"
-                                    [value]="monthBillDto.contractDto.dueDate | date: 'dd-MM-yyyy'" placeholder="None" disabled>
+                                <input type="text" class="form-control" [value]="monthBillDto.contractDto.dueDate | date: 'dd-MM-yyyy'" placeholder="None" disabled>
                             </div>
                         </div>
                     </div>
@@ -130,20 +126,16 @@
                             <tr>
                                 <td>0</td>
                                 <td>Thuê nhà</td>
-                                    <td>1</td>
-                                <td>{{ (monthBillDto.contractDto.roomDto.price - monthBillDto.contractDto.roomDeposit).toLocaleString().replaceAll(",",
-                                    ".")}} đ</td>
-                                <td>{{ (monthBillDto.contractDto.roomDto.price - monthBillDto.contractDto.roomDeposit).toLocaleString().replaceAll(",",
-                                    ".")}} đ</td>
+                                <td>1</td>
+                                <td>{{ (monthBillDto.contractDto.roomDto.price - monthBillDto.contractDto.roomDeposit).toLocaleString().replaceAll(",", ".")}} đ</td>
+                                <td>{{ (monthBillDto.contractDto.roomDto.price - monthBillDto.contractDto.roomDeposit).toLocaleString().replaceAll(",", ".")}} đ</td>
                             </tr>
                             <tr *ngFor="let data of monthBillDto.usedServiceDtoList; let i= index">
                                 <td>{{i+1}}</td>
                                 <td>{{ data.serviceDto.name }}</td>
                                 <td>{{ data.quantity }}</td>
-                                <td>{{ data.serviceDto.price.toLocaleString().replaceAll(",",
-                                    ".")}} đ</td>
-                                <td>{{ (data.serviceDto.price * data.quantity).toLocaleString().replaceAll(",",
-                                    ".")}} đ</td>
+                                <td>{{ data.serviceDto.price.toLocaleString().replaceAll(",", ".")}} đ</td>
+                                <td>{{ (data.serviceDto.price * data.quantity).toLocaleString().replaceAll(",", ".")}} đ</td>
                             </tr>
                         </tbody>
                     </table>

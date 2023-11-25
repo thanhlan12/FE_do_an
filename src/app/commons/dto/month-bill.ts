@@ -5,6 +5,7 @@ import { ServiceDto } from "./services";
 export class CreateMonthBillRequest {
     dueDate!: Date;
     paymentDate!: Date;
+    statusPayment!:boolean;
     note?: string;
     usedServiceRequests!: UsedServiceRequest[];
     contractId!: number;
@@ -20,6 +21,7 @@ export class MonthBillDto {
     dueDate!: Date;
     paymentDate!: Date;
     totalPrice!: number;
+    statusPayment!:boolean;
     note?: string;
     contractDto!: ContractDto;
     usedServiceDtoList!: UsedServiceDto[];

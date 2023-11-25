@@ -79,8 +79,36 @@
                     </div>
                 </div>
             </div>
+
+            <!-- <div class="card-body">
+                <nz-table nzShowSizeChanger nzBordered="true" #filterTable [nzData]="listOfDisplayData" [nzFrontPagination]="true" [nzLoading]="loading" [nzTotal]="total" [nzPageSize]="pageSize" [nzPageIndex]="pageIndex">
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>Tháng</th>
+                            <th>Tổng tiền</th>
+                            <th>Trạng thái</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <td>{{i}}</td>
+                        <td>{{data.roomDto.na}}</td>
+                        <td>{{'Tòa nhà ' + data.roomDto.buildingDto.name + ', ' + data.roomDto.buildingDto.address}}</td>
+                        <td>{{data.clientDto.phoneNumber}}</td>
+                        <td>{{data.startDate | date: 'dd-MM-yyyy'}}</td>
+                    </tbody>
+                </nz-table>
+            </div> -->
+
         </section>
         <!-- /.content -->
+
+
+
+
+
+
     </div>
     <!-- /.content-wrapper -->
     <app-footer></app-footer>

@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NzModalService } from 'ng-zorro-antd/modal';
 import { NzNotificationService } from 'ng-zorro-antd/notification';
 import { ContractDto } from 'src/app/commons/dto/contract';
-import { CreateMonthBillRequest, UsedServiceDto, UsedServiceRequest } from 'src/app/commons/dto/month-bill';
+import { CreateMonthBillRequest, MonthBillDto, UsedServiceDto, UsedServiceRequest } from 'src/app/commons/dto/month-bill';
 import { ServiceDto } from 'src/app/commons/dto/services';
 import { ContractService } from 'src/app/services/contract.service';
 import { MonthBillService } from 'src/app/services/month-bill.service';
@@ -20,6 +21,7 @@ export class AdminMonthBillComponent {
   contractDto: ContractDto = new ContractDto();
 
   servicesList: ServiceDto[] = [];
+  billList: MonthBillDto[]=[];
   servicesListData: UsedServiceDto[] = [];
 
   validateForm!: UntypedFormGroup;
@@ -30,6 +32,7 @@ export class AdminMonthBillComponent {
   createMonthBillRequest: CreateMonthBillRequest = new CreateMonthBillRequest();
 
   constructor(
+    private modalService: NzModalService,
     private monthBillService: MonthBillService,
     private contractService: ContractService,
     private router: Router,
@@ -50,8 +53,46 @@ export class AdminMonthBillComponent {
       quantity: [1, [Validators.required]],
       note: [null],
     });
+    this.listBill();
   }
 
+
+
+  
+  payBill(monthId: number): void {
+    this.monthBillService.PaymentBill(monthId);
+    this.modalService.confirm({
+      nzTitle: '<i>Xác nhận</i>',
+      nzContent: '<b>Bạn chắc chắn thanh toán hóa đơn này?</b>',
+      nzOnOk: () => {
+        this.monthBillService.PaymentBill(monthId).subscribe(
+          (response) => {
+            this.notification.create(
+              'success',
+              'Đã thanh toán hóa đơn',
+              ''
+            );
+          },
+          (error) => {
+            this.notification.create(
+              'error',
+              'Lỗi không tạo được hóa đơn',
+              ''
+            );
+          }
+        );
+      }
+    });
+  }
+  
+
+
+
+  listBill():void{
+    this.monthBillService.getBillOfContract(this.contractId).subscribe(Response =>{
+      this.billList= Response.data;
+    })
+  }
   getContractById(): void {
     this.contractService.getContractById(this.contractId).subscribe(response => {
       this.contractDto = response.data;
@@ -143,6 +184,7 @@ export class AdminMonthBillComponent {
         dueDate: new Date(),
         paymentDate: new Date(),
         note: "None",
+        statusPayment: false,
         usedServiceRequests: this.usedServiceRequestList
       }
 

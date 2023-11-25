@@ -33,6 +33,7 @@ export class AdminRentalContractComponent {
 
     this.getClientById();
     this.getContractOfClient();
+    this.getListBill();
   }
 
   listOfDisplayData: ContractDto[] = [];
@@ -41,6 +42,10 @@ export class AdminRentalContractComponent {
   loading = true;
   pageSize = 10;
   pageIndex = 1;
+
+  getListBill(): void{
+   // this.monthBillService.getBillOfContract(this.getContractOfClient.)
+  }
 
   getClientById(): void {
     this.clientService.getClientById(this.clientId).subscribe(response => {
@@ -56,6 +61,7 @@ export class AdminRentalContractComponent {
 
   getContractOfClient(): void {
     this.contractService.getContractOfClient(this.clientId).subscribe(response => {
+      console.log(response.data);
       this.listOfDisplayData = response.data;
       this.loading = false;
     }, error => {
@@ -66,6 +72,7 @@ export class AdminRentalContractComponent {
       );
     });
   }
+ // pay(contractId: number)
 
   onCreateBill(contractId: number): void {
     this.modalService.confirm({
@@ -97,4 +104,7 @@ export class AdminRentalContractComponent {
     //   );
     // })
   }
+
+
+
 }

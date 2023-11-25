@@ -15,15 +15,19 @@
                 <div class="row mb-2">
                     <div class="col-sm-8">
                         <h1 class="m-0">Thanh toán hóa đơn tháng hợp đồng: #{{contractDto.id}}</h1>
-                    </div><!-- /.col -->
+                    </div>
+                    <!-- /.col -->
                     <div class="col-sm-4">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a [routerLink]="['/admin']">Trang chủ</a></li>
                             <li class="breadcrumb-item active">Thanh toán</li>
                         </ol>
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
         </div>
         <!-- /.content-header -->
 
@@ -44,29 +48,25 @@
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label>Khách hàng</label>
-                                <input type="text" class="form-control" [value]="contractDto.clientDto.fullName"
-                                    disabled>
+                                <input type="text" class="form-control" [value]="contractDto.clientDto.fullName" disabled>
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label>Số điện thoại</label>
-                                <input type="text" class="form-control" [value]="contractDto.clientDto.phoneNumber"
-                                    disabled>
+                                <input type="text" class="form-control" [value]="contractDto.clientDto.phoneNumber" disabled>
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label>Căn cước công dân</label>
-                                <input type="text" class="form-control"
-                                    [value]="contractDto.clientDto.idCard" disabled>
+                                <input type="text" class="form-control" [value]="contractDto.clientDto.idCard" disabled>
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label>Địa chỉ</label>
-                                <input type="text" class="form-control"
-                                    [value]="contractDto.clientDto.address" disabled>
+                                <input type="text" class="form-control" [value]="contractDto.clientDto.address" disabled>
                             </div>
                         </div>
                     </div>
@@ -74,30 +74,26 @@
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label>Mã phòng</label>
-                                <input type="text" class="form-control"
-                                    [value]="contractDto.roomDto.name" disabled>
+                                <input type="text" class="form-control" [value]="contractDto.roomDto.name" disabled>
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label>Địa chỉ phòng</label>
                                 <input type="text" class="form-control" [value]=" 'Tòa ' + 
-                                contractDto.roomDto.buildingDto.name + ', ' + contractDto.roomDto.buildingDto.address"
-                                    disabled>
+                                contractDto.roomDto.buildingDto.name + ', ' + contractDto.roomDto.buildingDto.address" disabled>
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label>Ngày thuê</label>
-                                <input type="text" class="form-control" [value]="contractDto.startDate | date: 'dd-MM-yyyy'"
-                                    disabled>
+                                <input type="text" class="form-control" [value]="contractDto.startDate | date: 'dd-MM-yyyy'" disabled>
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label>Ngày hết hạn</label>
-                                <input type="text" class="form-control"
-                                    [value]="contractDto.dueDate | date: 'dd-MM-yyyy'" placeholder="None" disabled>
+                                <input type="text" class="form-control" [value]="contractDto.dueDate | date: 'dd-MM-yyyy'" placeholder="None" disabled>
                             </div>
                         </div>
                     </div>
@@ -122,8 +118,7 @@
                                     <nz-form-label nzRequired>Chọn dịch vụ</nz-form-label>
                                     <nz-form-control nzErrorTip="Nhập đầy đủ thông tin!">
                                         <nz-select (ngModelChange)="onChangeService($event)" formControlName="serviceId" nzPlaceHolder="Lựa chọn">
-                                            <nz-option *ngFor="let item of servicesList" [nzValue]="item.id"
-                                                [nzLabel]="item.name"></nz-option>
+                                            <nz-option *ngFor="let item of servicesList" [nzValue]="item.id" [nzLabel]="item.name"></nz-option>
                                         </nz-select>
                                     </nz-form-control>
                                 </nz-form-item>
@@ -140,8 +135,7 @@
                                 <nz-form-item>
                                     <nz-form-label nzRequired>Số lượng</nz-form-label>
                                     <nz-form-control nzErrorTip="Nhập đầy đủ thông tin!">
-                                        <input min="1" formControlName="quantity" nz-input type="number"
-                                            placeholder="Số lượng">
+                                        <input min="1" formControlName="quantity" nz-input type="number" placeholder="Số lượng">
                                     </nz-form-control>
                                 </nz-form-item>
                             </div>
@@ -183,10 +177,8 @@
                                 <td>{{i}}</td>
                                 <td>{{ data.serviceDto.name }}</td>
                                 <td>{{ data.quantity }}</td>
-                                <td>{{ data.serviceDto.price.toLocaleString().replaceAll(",",
-                                    ".")}} đ</td>
-                                <td>{{ (data.serviceDto.price * data.quantity).toLocaleString().replaceAll(",",
-                                    ".")}} đ</td>
+                                <td>{{ data.serviceDto.price.toLocaleString().replaceAll(",", ".")}} đ</td>
+                                <td>{{ (data.serviceDto.price * data.quantity).toLocaleString().replaceAll(",", ".")}} đ</td>
                                 <td>
                                     <a (click)="data.id != 0 ? removeService(data.serviceDto.id) : ''"><span nz-icon nzType="delete"
                                             nzTheme="outline"></span></a>
@@ -194,6 +186,9 @@
                             </tr>
                         </tbody>
                     </table>
+
+
+
                 </div>
                 <div class="card-footer">
                     <button type="submit" class="btn btn-info" (click)="saveInfo()">Lưu thông
@@ -207,6 +202,28 @@
                         </a>
                     </div> -->
                 </div>
+
+                <nz-form-label>Danh sách dịch vụ</nz-form-label>
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>Thời gian</th>
+                            <th>Tổng tiền</th>
+                            <th></th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let data of billList; let i= index">
+                            <td>{{i}}</td>
+                            <td>{{ data.paymentDate }}</td>
+                            <td>{{ data.totalPrice }}</td>
+                            <td (click)="payBill(data.id)">{{data.statusPayment ? "hóa đơn đã thanh toán" : "hóa đơn chưa trả" }}</td>
+                            <!-- <td><span [class]="'badge badge-' + (data.statusPayment ? 'success' : 'warning')">{{ data.statusPayment ? 'Đã thanh toán' : 'Chưa thanh toán' }}</span></td> -->
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </section>
         <!-- /.content -->
