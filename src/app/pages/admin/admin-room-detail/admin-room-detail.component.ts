@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NzModalService } from 'ng-zorro-antd/modal';
 import { NzNotificationService } from 'ng-zorro-antd/notification';
-import { RoomDto } from 'src/app/commons/dto/room';
+import { room } from 'src/app/commons/dto/room';
 import { RoomService } from 'src/app/services/room.service';
 
 @Component({
@@ -14,7 +14,7 @@ export class AdminRoomDetailComponent {
   price = 1500000;
   roomId!: number;
 
-  roomDetail: RoomDto = new RoomDto();
+  roomDetail: room = new room();
 
   constructor(
     private modalService: NzModalService,

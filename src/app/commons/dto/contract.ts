@@ -1,6 +1,6 @@
 import { ClientDto } from "./client";
 import { BaseResponse } from "./response";
-import { RoomDto } from "./room";
+import { room } from "./room";
 
 export class ContractDto {
     id!: number;
@@ -10,7 +10,7 @@ export class ContractDto {
     dueDate!: Date;
     roomDeposit!: number;
     clientDto!: ClientDto;
-    roomDto!: RoomDto;
+    room!: room;
 }
 
 export class ContractRequest {

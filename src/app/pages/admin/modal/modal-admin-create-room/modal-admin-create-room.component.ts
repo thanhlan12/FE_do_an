@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NzModalRef } from 'ng-zorro-antd/modal';
 import { NzNotificationService } from 'ng-zorro-antd/notification';
 import { RoomStatus } from 'src/app/commons/constants/status';
-import { BuildingDto, BuildingRequest, RoomRequest } from './../../../../commons/dto/room';
+import { building, BuildingRequest, RoomRequest } from './../../../../commons/dto/room';
 import { RoomService } from './../../../../services/room.service';
 
 @Component({
@@ -14,8 +14,8 @@ import { RoomService } from './../../../../services/room.service';
 export class ModalAdminCreateRoomComponent {
   createRoomRequest: RoomRequest = new RoomRequest();
   validateForm!: FormGroup;
-  buildings: BuildingDto[] = [];
-  filteredBuildings: BuildingDto[] = [];
+  buildings: building[] = [];
+  filteredBuildings: building[] = [];
 
   constructor(
     private modal: NzModalRef,
@@ -52,7 +52,7 @@ export class ModalAdminCreateRoomComponent {
       console.log('submit', this.validateForm.value);
 
       const buildingId: number = this.validateForm.value.buildingId;
-      const building: BuildingDto | undefined = this.buildings.find(b => b.id === buildingId);
+      const building: building | undefined = this.buildings.find(b => b.id === buildingId);
 
       if (building) {
         const buildingRequest: BuildingRequest = {

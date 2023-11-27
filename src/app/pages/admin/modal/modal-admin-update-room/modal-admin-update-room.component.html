@@ -23,7 +23,8 @@
                 <nz-form-item>
                     <nz-form-label nzRequired>Tòa nhà</nz-form-label>
                     <nz-form-control nzErrorTip="Nhập đầy đủ thông tin!">
-                        <input nz-input formControlName="buildingName" placeholder="Tòa nhà" />
+                        <span>{{ validateForm.value.buildingName }}</span>
+                        <!-- <input nz-input formControlName="buildingName" placeholder="Tòa nhà" /> -->
                     </nz-form-control>
                 </nz-form-item>
             </div>
@@ -31,7 +32,8 @@
                 <nz-form-item>
                     <nz-form-label nzRequired>Địa chỉ</nz-form-label>
                     <nz-form-control nzErrorTip="Nhập đầy đủ thông tin!">
-                        <input nz-input formControlName="address" placeholder="Địa chỉ" />
+                        <span>{{ validateForm.value.address }}</span>
+                        <!-- <input nz-input formControlName="address" placeholder="Địa chỉ" /> -->
                     </nz-form-control>
                 </nz-form-item>
             </div>

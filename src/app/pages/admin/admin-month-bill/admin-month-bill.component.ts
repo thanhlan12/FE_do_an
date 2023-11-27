@@ -99,7 +99,7 @@ export class AdminMonthBillComponent {
       let serviceRoot: ServiceDto = {
         id: -1,
         name: "Thuê nhà",
-        price: this.contractDto.roomDto.price - this.contractDto.roomDeposit
+        price: this.contractDto.room.price - this.contractDto.roomDeposit
       };
       this.servicesListData.push({
         id: 0,

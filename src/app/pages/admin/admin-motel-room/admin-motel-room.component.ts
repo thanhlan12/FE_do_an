@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NzModalService } from 'ng-zorro-antd/modal';
 import { NzNotificationService } from 'ng-zorro-antd/notification';
-import { RoomDto } from 'src/app/commons/dto/room';
+import { room } from 'src/app/commons/dto/room';
 import { ModalAdminCreateRoomComponent } from '../modal/modal-admin-create-room/modal-admin-create-room.component';
 import { ModalAdminUpdateRoomComponent } from '../modal/modal-admin-update-room/modal-admin-update-room.component';
 import { RoomService } from './../../../services/room.service';
@@ -25,7 +25,7 @@ export class AdminMotelRoomComponent {
     this.getAllRoom();
   }
 
-  listOfDisplayData: RoomDto[] = [];
+  listOfDisplayData: room[] = [];
 
   total = 1;
   loading = true;

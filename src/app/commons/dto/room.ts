@@ -1,7 +1,7 @@
 import { RoomStatus } from "../constants/status";
 import { BaseResponse } from "./response";
 
-export class RoomDto {
+export class room {
     id!: number;
     name!: string;
     type!: string;
@@ -9,7 +9,7 @@ export class RoomDto {
     roomArea!: number;
     roomStatus!: RoomStatus;
     description!: string;
-    buildingDto!: BuildingDto;
+    building!: building;
 }
 
 export class RoomRequest {
@@ -29,7 +29,7 @@ export class BuildingRequest {
     description!: string;
 }
 
-export class BuildingDto {
+export class building {
     id!: number;
     name!: string;
     address!: string;
@@ -38,17 +38,17 @@ export class BuildingDto {
 
 export class ListRoomResponse implements BaseResponse {
     message!: string;
-    data!: RoomDto[];
+    data!: room[];
 
 }
 
 export class ListBuildingResponse implements BaseResponse {
     message!: string;
-    data!: BuildingDto[];
+    data!: building[];
 
 }
 
 export class RoomResponse implements BaseResponse {
     message!: string;
-    data!: RoomDto;
+    data!: room;
 }

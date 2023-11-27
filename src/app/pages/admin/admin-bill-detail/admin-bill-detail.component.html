@@ -74,14 +74,14 @@
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label>Mã phòng</label>
-                                <input type="text" class="form-control" [value]="monthBillDto.contractDto.roomDto.name" disabled>
+                                <input type="text" class="form-control" [value]="monthBillDto.contractDto.room.name" disabled>
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label>Địa chỉ phòng</label>
                                 <input type="text" class="form-control" [value]=" 'Tòa ' + 
-                                monthBillDto.contractDto.roomDto.buildingDto.name + ', ' + monthBillDto.contractDto.roomDto.buildingDto.address" disabled>
+                                monthBillDto.contractDto.room.building.name + ', ' + monthBillDto.contractDto.room.building.address" disabled>
                             </div>
                         </div>
                         <div class="col-sm-3">
@@ -127,8 +127,8 @@
                                 <td>0</td>
                                 <td>Thuê nhà</td>
                                 <td>1</td>
-                                <td>{{ (monthBillDto.contractDto.roomDto.price - monthBillDto.contractDto.roomDeposit).toLocaleString().replaceAll(",", ".")}} đ</td>
-                                <td>{{ (monthBillDto.contractDto.roomDto.price - monthBillDto.contractDto.roomDeposit).toLocaleString().replaceAll(",", ".")}} đ</td>
+                                <td>{{ (monthBillDto.contractDto.room.price - monthBillDto.contractDto.roomDeposit).toLocaleString().replaceAll(",", ".")}} đ</td>
+                                <td>{{ (monthBillDto.contractDto.room.price - monthBillDto.contractDto.roomDeposit).toLocaleString().replaceAll(",", ".")}} đ</td>
                             </tr>
                             <tr *ngFor="let data of monthBillDto.usedServiceDtoList; let i= index">
                                 <td>{{i+1}}</td>

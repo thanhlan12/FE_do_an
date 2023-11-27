@@ -73,8 +73,8 @@
                                     <td (click)="onViewDetail(data.id)">{{data.name}}</td>
                                     <td (click)="onViewDetail(data.id)">{{data.type}}</td>
                                     <td (click)="onViewDetail(data.id)">{{data.roomArea}} m<sup>2</sup></td>
-                                    <td (click)="onViewDetail(data.id)">{{data.buildingDto.name}}</td>
-                                    <!-- <td (click)="onViewDetail(data.id)">{{data.building.address}}</td> -->
+                                    <td (click)="onViewDetail(data.id)">{{data.building.name}}</td>
+                                    <td (click)="onViewDetail(data.id)">{{data.building.address}}</td>
                                     <td (click)="onViewDetail(data.id)">{{ data.price.toLocaleString().replaceAll(",", ".")}} đ</td>
                                     <td (click)="onViewDetail(i)">{{data.roomStatus.toString() == "AVAILABLE" ? "Còn trống" : data.roomStatus.toString() == "RENTED" ? "Đã thuê" : "Chưa rõ tình trạng"}}</td>
                                     <td [nzRight]="false">

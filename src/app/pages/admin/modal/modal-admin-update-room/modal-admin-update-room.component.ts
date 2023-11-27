@@ -50,9 +50,10 @@ export class ModalAdminUpdateRoomComponent {
         type: [data.type, [Validators.required]],
         price: [data.price, [Validators.required]],
         description: [data.description, [Validators.required]],
-        buildingRequest: [data.buildingDto, [Validators.required]],
-        address: [data.buildingDto.address, [Validators.required]],
+        buildingRequest: [data.building, [Validators.required]],
+        address: [data.building.address, [Validators.required]],
         roomArea: [data.roomArea, [Validators.required]],
+        buildingName:[data.building.name,[Validators.required]],
       });
     }, error => {
       this.notification.create(

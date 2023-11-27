@@ -74,14 +74,14 @@
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label>Mã phòng</label>
-                                <input type="text" class="form-control" [value]="contractDto.roomDto.name" disabled>
+                                <input type="text" class="form-control" [value]="contractDto.room.name" disabled>
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label>Địa chỉ phòng</label>
                                 <input type="text" class="form-control" [value]=" 'Tòa ' + 
-                                contractDto.roomDto.buildingDto.name + ', ' + contractDto.roomDto.buildingDto.address" disabled>
+                                contractDto.room.building.name + ', ' + contractDto.room.building.address" disabled>
                             </div>
                         </div>
                         <div class="col-sm-3">

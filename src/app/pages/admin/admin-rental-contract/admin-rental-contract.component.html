@@ -58,8 +58,8 @@
                                 <tbody>
                                     <tr *ngFor="let data of filterTable.data; let i= index" style="cursor: pointer;" (click)="onCreateBill(data.id)">
                                         <td>{{i}}</td>
-                                        <td>{{data.roomDto.name}}</td>
-                                        <td>{{'Tòa nhà ' + data.roomDto.buildingDto.name + ', ' + data.roomDto.buildingDto.address}}
+                                        <td>{{data.room.name}}</td>
+                                        <td>{{'Tòa nhà ' + data.room.building.name + ', ' + data.room.building.address}}
                                         </td>
                                         <td>{{data.clientDto.phoneNumber}}</td>
                                         <td>{{data.startDate | date: 'dd-MM-yyyy'}}</td>
@@ -93,8 +93,8 @@
                     </thead>
                     <tbody>
                         <td>{{i}}</td>
-                        <td>{{data.roomDto.na}}</td>
-                        <td>{{'Tòa nhà ' + data.roomDto.buildingDto.name + ', ' + data.roomDto.buildingDto.address}}</td>
+                        <td>{{data.room.na}}</td>
+                        <td>{{'Tòa nhà ' + data.room.building.name + ', ' + data.room.building.address}}</td>
                         <td>{{data.clientDto.phoneNumber}}</td>
                         <td>{{data.startDate | date: 'dd-MM-yyyy'}}</td>
                     </tbody>
