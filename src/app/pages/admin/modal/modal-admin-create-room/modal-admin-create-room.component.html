@@ -18,25 +18,18 @@
                 </nz-form-item>
             </div>
         </div>
+
         <div nz-row nzGutter="16">
             <div nz-col nzSm="12">
                 <nz-form-item>
                     <nz-form-label nzRequired>Tòa nhà</nz-form-label>
                     <nz-form-control nzErrorTip="Nhập đầy đủ thông tin!">
-                        <input nz-input formControlName="buildingName" placeholder="Tòa nhà" />
+                        <nz-select formControlName="buildingId" nzPlaceHolder="Chọn tòa nhà" nzShowSearch nzServerSearch (nzOnSearch)="searchBuilding($event)">
+                            <nz-option *ngFor="let building of filteredBuildings" [nzLabel]="building.name + ' - ' + building.address" [nzValue]="building.id"></nz-option>
+                        </nz-select>
                     </nz-form-control>
                 </nz-form-item>
             </div>
-            <div nz-col nzSm="12">
-                <nz-form-item>
-                    <nz-form-label nzRequired>Địa chỉ</nz-form-label>
-                    <nz-form-control nzErrorTip="Nhập đầy đủ thông tin!">
-                        <input nz-input formControlName="address" placeholder="Địa chỉ" />
-                    </nz-form-control>
-                </nz-form-item>
-            </div>
-        </div>
-        <div nz-row nzGutter="16">
             <div nz-col nzSm="12">
                 <nz-form-item>
                     <nz-form-label nzRequired>Diện tích</nz-form-label>
@@ -45,6 +38,9 @@
                     </nz-form-control>
                 </nz-form-item>
             </div>
+        </div>
+
+        <div nz-row nzGutter="16">
             <div nz-col nzSm="12">
                 <nz-form-item>
                     <nz-form-label nzRequired>Giá phòng</nz-form-label>
@@ -54,6 +50,7 @@
                 </nz-form-item>
             </div>
         </div>
+
         <div nz-row nzGutter="16">
             <div nz-col nzSm="24">
                 <nz-form-item>
@@ -64,8 +61,10 @@
                 </nz-form-item>
             </div>
         </div>
+
     </form>
 </div>
+
 <div *nzModalFooter>
     <button nz-button nzType="default" (click)="destroyModal()">Hủy</button>
     <button nz-button nzType="primary" (click)="createRoom()">Thêm mới</button>

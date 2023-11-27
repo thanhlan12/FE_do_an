@@ -9,7 +9,7 @@ export class RoomDto {
     roomArea!: number;
     roomStatus!: RoomStatus;
     description!: string;
-    buildingDto!: BuildingDto
+    buildingDto!: BuildingDto;
 }
 
 export class RoomRequest {
@@ -19,10 +19,11 @@ export class RoomRequest {
     roomArea!: number;
     status!: RoomStatus;
     description!: string;
-    buildingRequest!: BuildingRequest
+    buildingRequest!: BuildingRequest;
 }
 
 export class BuildingRequest {
+    id!:number;
     name!: string;
     address!: string;
     description!: string;
@@ -38,6 +39,12 @@ export class BuildingDto {
 export class ListRoomResponse implements BaseResponse {
     message!: string;
     data!: RoomDto[];
+
+}
+
+export class ListBuildingResponse implements BaseResponse {
+    message!: string;
+    data!: BuildingDto[];
 
 }
 

@@ -184,7 +184,7 @@ export class AdminMonthBillComponent {
         dueDate: new Date(),
         paymentDate: new Date(),
         note: "None",
-        statusPayment: false,
+        // statusPayment: false,
         usedServiceRequests: this.usedServiceRequestList
       }
 

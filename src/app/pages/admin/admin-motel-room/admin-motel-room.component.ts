@@ -34,6 +34,7 @@ export class AdminMotelRoomComponent {
 
   getAllRoom(): void {
     this.roomService.getAllRoom().subscribe(response => {
+      // this.total = response.data.length;
       this.listOfDisplayData = response.data;
       this.loading = false;
     }, error => {

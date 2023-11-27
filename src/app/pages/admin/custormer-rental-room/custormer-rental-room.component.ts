@@ -55,7 +55,7 @@ export class CustomerRentalRoomComponent {
 
   getAllClient(): void {
     this.clientService.getAllClient().subscribe(response => {
-      this.listOfDisplayData = response.data.filter(e => e.clientStatus.toString() == "AVAILABLE");
+      this.listOfDisplayData = response.data;
       this.loading = false;
     }, error => {
       this.notification.create(

@@ -50,7 +50,7 @@ export class ModalAdminUpdateRoomComponent {
         type: [data.type, [Validators.required]],
         price: [data.price, [Validators.required]],
         description: [data.description, [Validators.required]],
-        buildingName: [data.buildingDto.name, [Validators.required]],
+        buildingRequest: [data.buildingDto, [Validators.required]],
         address: [data.buildingDto.address, [Validators.required]],
         roomArea: [data.roomArea, [Validators.required]],
       });
@@ -79,7 +79,7 @@ export class ModalAdminUpdateRoomComponent {
         roomArea: this.validateForm.value.roomArea,
         status: RoomStatus.AVAILABLE,
         description: this.validateForm.value.description,
-        buildingRequest: buildingRequest,
+        buildingRequest: this.validateForm.value.buildingRequest,
       }
 
       console.log(this.createRoomRequest)

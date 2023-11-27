@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ROOT_API } from '../commons/constants/api';
-import { ListRoomResponse, RoomRequest, RoomResponse } from '../commons/dto/room';
+import { BuildingRequest, ListBuildingResponse, ListRoomResponse, RoomRequest, RoomResponse } from '../commons/dto/room';
 import { AuthService } from './auth.service';
 
 @Injectable({
@@ -30,6 +30,10 @@ export class RoomService {
 
     deleteRoom(roomId: number): Observable<number> {
         return this.httpClient.delete<number>(`${this.baseURL}/${roomId}`);
+    }
+
+    getAllBuilding():Observable<ListBuildingResponse>{
+        return this.httpClient.get<ListBuildingResponse>(`${this.baseURL}/getAllBuilding`);
     }
 
 }

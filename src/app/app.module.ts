@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { NzAutocompleteModule } from 'ng-zorro-antd/auto-complete';
 import { registerLocaleData } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import en from '@angular/common/locales/en';
@@ -56,6 +56,7 @@ registerLocaleData(en);
     ModalAdminUpdateServiceComponent,
     AdminMonthBillComponent,
     AdminBillDetailComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -64,7 +65,8 @@ registerLocaleData(en);
     HttpClientModule,
     BrowserAnimationsModule,
     NgZorroAntdModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NzAutocompleteModule
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US }

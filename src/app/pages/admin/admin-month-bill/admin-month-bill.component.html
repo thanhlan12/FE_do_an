@@ -203,29 +203,31 @@
                     </div> -->
                 </div>
 
-                <nz-form-label>Danh sách dịch vụ</nz-form-label>
-                <table class="table table-bordered table-hover">
-                    <thead>
-                        <tr>
-                            <th>STT</th>
-                            <th>Thời gian</th>
-                            <th>Tổng tiền</th>
-                            <th></th>
 
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let data of billList; let i= index">
-                            <td>{{i}}</td>
-                            <td>{{ data.paymentDate }}</td>
-                            <td>{{ data.totalPrice }}</td>
-                            <td (click)="payBill(data.id)">{{data.statusPayment ? "hóa đơn đã thanh toán" : "hóa đơn chưa trả" }}</td>
-                            <!-- <td><span [class]="'badge badge-' + (data.statusPayment ? 'success' : 'warning')">{{ data.statusPayment ? 'Đã thanh toán' : 'Chưa thanh toán' }}</span></td> -->
-                        </tr>
-                    </tbody>
-                </table>
             </div>
         </section>
+
+        <nz-form-label>Danh sách dịch vụ</nz-form-label>
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Thời gian</th>
+                    <th>Tổng tiền</th>
+                    <th></th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of billList; let i= index">
+                    <td>{{i}}</td>
+                    <td>{{ data.paymentDate }}</td>
+                    <td>{{ data.totalPrice }}</td>
+                    <td (click)="payBill(data.id)">{{data.statusPayment ? "hóa đơn đã thanh toán" : "hóa đơn chưa trả" }}</td>
+                    <!-- <td><span [class]="'badge badge-' + (data.statusPayment ? 'success' : 'warning')">{{ data.statusPayment ? 'Đã thanh toán' : 'Chưa thanh toán' }}</span></td> -->
+                </tr>
+            </tbody>
+        </table>
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
